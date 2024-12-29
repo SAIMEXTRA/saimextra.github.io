@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 20px;
+            color: #333;
+        }
+        h3 {
+            font-size: 1.4em;
+            margin-top: 20px;
+            color: #333;
+        }
+        .container {
+            width: 70%;
+            margin: 30px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            display: block;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+        .back-link {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .back-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Test Results</h1>
+</header>
+
+<div class="container">
+    <h2>Nil Control Image</h2>
+    <img src="{{ url_for('static', filename='uploads/' + nil_control_image.split('/')[-1]) }}" alt="Nil Control Image">
+    <p>Spots: {{ nil_control_spots }}</p>
+
+    <h2>Panel A Image</h2>
+    <img src="{{ url_for('static', filename='uploads/' + panel_a_image.split('/')[-1]) }}" alt="Panel A Image">
+    <p>Spots: {{ panel_a_spots }}</p>
+
+    <h2>Panel B Image</h2>
+    <img src="{{ url_for('static', filename='uploads/' + panel_b_image.split('/')[-1]) }}" alt="Panel B Image">
+    <p>Spots: {{ panel_b_spots }}</p>
+
+    <h2>Positive Panel Image</h2>
+    <img src="{{ url_for('static', filename='uploads/' + positive_panel_image.split('/')[-1]) }}" alt="Positive Panel Image">
+    <p>Spots: {{ positive_panel_spots }}</p>
+
+    <div class="result">
+        <h3>{{ result }}</h3>
+    </div>
+
+    <div class="back-link">
+        <a href="{{ url_for('index') }}">Back to Upload</a>
+    </div>
+</div>
+
+</body>
+</html>
